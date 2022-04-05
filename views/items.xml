@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="items_view_tree" model="ir.ui.view">
+            <field name="name">items_view_tree</field>
+            <field name="model">electron.items</field>
+            <field name="arch" type="xml">
+                <tree string="items_tree">
+                    <field name="name"/>
+                    <field name="qty"/>
+                    <field name="type"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="items_view_form" model="ir.ui.view">
+            <field name="name">items_view_form</field>
+            <field name="model">electron.items</field>
+            <field name="arch" type="xml">
+                <form string="items_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="qty"/>
+                            <field name="type"/>
+                            <field name="price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="items_action" model="ir.actions.act_window">
+            <field name="name">All Items</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.items</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="entertainments_action" model="ir.actions.act_window">
+            <field name="name">Entertainment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.items</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','entertainments')]</field>
+        </record>
+
+        <record id="furnitures_action" model="ir.actions.act_window">
+            <field name="name">Furnitures</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.items</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','furnitures')]</field>
+        </record>
+
+        <record id="furnitures_action" model="ir.actions.act_window">
+            <field name="name">Furnitures</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.items</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','furnitures')]</field>
+        </record>
+
+        <record id="tools_action" model="ir.actions.act_window">
+            <field name="name">Tools</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.items</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','tools')]</field>
+        </record>
+
+        <record id="accessories_action" model="ir.actions.act_window">
+            <field name="name">Accessories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.items</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('type','=','accessories')]</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="items_menu_act" name="All Items" parent="electron_stuff_menu_categ" action="items_action" sequence="20"/>
+        <menuitem id="type_menu_act" name="Item Types" parent="electron_stuff_menu_categ" sequence="30"/>
+
+        <menuitem id="entertainments_menu_act" name="Entertainment" parent="type_menu_act" action="entertainments_action" sequence="10"/>
+        <menuitem id="furnitures_menu_act" name="Furnitures" parent="type_menu_act" action="furnitures_action" sequence="20"/>
+        <menuitem id="tools_menu_act" name="Tools" parent="type_menu_act" action="tools_action" sequence="30"/>
+        <menuitem id="accessories_menu_act" name="Accessories" parent="type_menu_act" action="accessories_action" sequence="40"/>
+
+    </data>
+</odoo>

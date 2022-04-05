@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_electron_items,access.electron.items,model_electron_items,,1,1,1,1
+access_electron_packs,access.electron.packs,model_electron_packs,,1,1,1,1
+access_electron_voucher,access.electron.voucher,model_electron_voucher,,1,1,1,1
+access_electron_point,access.electron.point,model_electron_point,,1,1,1,1
+access_electron_order,access.electron.order,model_electron_order,,1,1,1,1

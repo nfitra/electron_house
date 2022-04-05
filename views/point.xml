@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="point_view_tree" model="ir.ui.view">
+            <field name="name">point_view_tree</field>
+            <field name="model">electron.point</field>
+            <field name="arch" type="xml">
+                <tree string="point_tree">
+                    <field name="customer"/>
+                    <field name="point"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="point_view_form" model="ir.ui.view">
+            <field name="name">point_view_form</field>
+            <field name="model">electron.point</field>
+            <field name="arch" type="xml">
+                <form string="point_form">
+                    <sheet>
+                        <group>
+                            <field name="customer" domain="[('is_customer', '=', True)]"/>
+                            <field name="point"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="point_action" model="ir.actions.act_window">
+            <field name="name">Point</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">electron.point</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="point_menu_act" name="Point" parent="electron_promo_menu_categ" action="point_action" sequence="20"/>
+
+    </data>
+</odoo>
