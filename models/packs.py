@@ -11,7 +11,7 @@ class Packs(models.Model):
 
     items_ids = fields.Many2many(
         comodel_name='electron.items',
-        string='Items_ids')
+        string='Items')
 
     total = fields.Integer(compute='_compute_total', string='Total', store=True)
 
