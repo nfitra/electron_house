@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="report_order" model="ir.actions.report">
+            <field name="name">Report Order</field>
+            <field name="model">electron.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">electron_house.report_order_templete</field>
+            <field name="report_file">electron_house.report_order_templete</field>
+            <field name="binding_model_id" ref="model_electron_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_order_templete">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <h1>
+                            <strong>
+                                <center>Report All Orders</center>
+                            </strong>
+                        </h1>
+                        <br/>
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-4">Order Code :</div>
+                                <div class="col-8">
+                                    <span t-field="o.name"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Customer :</div>
+                                <div class="col-8">
+                                    <span t-field="o.customer"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <h4>
+                                <div class="row">Items</div>
+                            </h4>
+                            <div class="row">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Type</th>
+                                        <th>Price</th>
+                                    </tr>
+                                    <t t-set="total_items" t-value="0"/>
+                                    <t t-foreach="o.items_ids" t-as="it">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="it.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="it.qty"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="it.type"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="it.price"/>
+                                            </td>
+                                            <t t-set="total_items" t-value="total_items+it.price"/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan="3">Total:</td>
+                                        <td>
+                                            <span t-esc="total_items"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br/>
+                            <h4>
+                                <div class="row">Packs</div>
+                            </h4>
+                            <div class="row">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <t t-set="total_packs" t-value="0"/>
+                                    <t t-foreach="o.packs_ids" t-as="pc">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="pc.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="pc.total"/>
+                                            </td>
+                                            <t t-set="total_packs" t-value="total_packs+pc.total"/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>Total:</td>
+                                        <td>
+                                            <span t-esc="total_packs"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <td>Total:</td>
+                                <td>
+                                    <span t-esc="o.total"/>
+                                </td>
+                            </div>
+                            <t t-if="o.discount_type != 'none'">
+                                <div class="row">
+                                    <td>Total with Discount:</td>
+                                    <td>
+                                        <span t-esc="o.total_with_disc"/>
+                                    </td>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
