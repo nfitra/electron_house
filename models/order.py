@@ -114,6 +114,10 @@ class Order(models.Model):
         readonly=True,
         default='ongoing')
 
+    notes = fields.Char(
+        string='Notes',
+        required=False)
+
     @api.model
     def create(self, vals):
         point = 0
@@ -149,3 +153,12 @@ class Order(models.Model):
     def action_cancel(self):
         for record in self:
             record.state = 'cancelled'
+        return {
+            'name': ('Add Reason'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'electron.cancel',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+            'target': 'new'
+        }

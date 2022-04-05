@@ -5,3 +5,4 @@ access_electron_packs,access.electron.packs,model_electron_packs,,1,1,1,1
 access_electron_voucher,access.electron.voucher,model_electron_voucher,,1,1,1,1
 access_electron_point,access.electron.point,model_electron_point,,1,1,1,1
 access_electron_order,access.electron.order,model_electron_order,,1,1,1,1
+access_electron_cancel,access.electron.cancel,model_electron_cancel,,1,1,1,1

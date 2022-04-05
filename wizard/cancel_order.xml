@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cancel_order_view_form" model="ir.ui.view">
+            <field name="name">Reason For Cancellation</field>
+            <field name="model">electron.cancel</field>
+            <field name="arch" type="xml">
+                <form string="Reason For Cancellation">
+                    <sheet>
+                        <field name="notes" nolabel="1"/>
+                        <footer>
+                            <button string="Confirm" name="action_cancel" class="btn-primary" type="object" />
+                            <button string="Cancel" class="btn-secondary" special="cancel" />
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

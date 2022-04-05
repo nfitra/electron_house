@@ -37,6 +37,7 @@
         'data/seq_order.xml',
         'report/report.xml',
         'report/report_order.xml',
+        'wizard/cancel_order.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

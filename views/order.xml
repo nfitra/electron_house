@@ -72,6 +72,7 @@
                         <group>
                             <field name="total" readonly="1" force_save="1" />
                             <field name="total_with_disc" readonly="1" force_save="1" attrs="{'invisible':[('discount_type','=','none')]}"/>
+                            <field name="notes" readonly="1" attrs="{'invisible':[('state','!=','cancelled')]}"/>
                         </group>
                     </sheet>
                 </form>
